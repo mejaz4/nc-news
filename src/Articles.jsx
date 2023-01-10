@@ -26,7 +26,7 @@ const Articles = () => {
             <h3>Total articles: {articleList.length}</h3>
             <ul>
                 {articleList.map((article) => {
-                    return <li key={article.article_id}><Link to={`/article/${article.title}`} >{article.title}</Link> <p>Topic: {article.topic}</p></li>
+                    return <li key={article.article_id}><Link to={`/articles/${article.article_id}`} >{article.title}</Link> <p>Topic: {article.topic}</p></li>
                 })}
             </ul>
 

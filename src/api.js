@@ -20,3 +20,10 @@ export const getTopics = () => {
     })
 }
 
+
+export const getSingleArticle = (article_slug) => {
+    return myApi.get(`/articles/${article_slug}`).then((res) => {
+      return res.data.article;
+    });
+  };
+
