@@ -21,7 +21,7 @@ const Articles = () => {
 
 
     return (
-        <div className="article-list">
+        <article className="article-list">
             <h2>Here are all available articles</h2>
             <h3>Total articles: {articleList.length}</h3>
             <ul>
@@ -30,7 +30,7 @@ const Articles = () => {
                 })}
             </ul>
 
-        </div>
+        </article>
 
 
 

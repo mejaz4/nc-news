@@ -11,12 +11,12 @@ function App() {
     <Header />
     <Navbar />
 
-    <div className="main">
+    <main className="main">
         <Routes>
           <Route path="/" element={<Articles />}></Route>
           <Route path="/topics" element={<Topics />}></Route>
         </Routes>
-      </div>
+      </main>
 
 
 
