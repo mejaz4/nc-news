@@ -26,11 +26,13 @@ const SingleArticle = () => {
             <article>
                 <header>
                     <h2>Article: {singleArticle.title}</h2>
-                    <p>Written by: {singleArticle.author} <span>| Topic: {singleArticle.topic} </span></p>
                 </header>
 
                 <p>{singleArticle.body}</p>
+                <p>Written by: {singleArticle.author} <span>
+                    | Topic: {singleArticle.topic} </span></p>
             </article>
+
         </div>
     );
 };
