@@ -29,9 +29,10 @@ const SingleArticle = () => {
                 </header>
 
                 <p>{singleArticle.body}</p>
-                <p>Written by: {singleArticle.author} <span>| Topic: {singleArticle.topic} </span></p>
+                <p>Written by: {singleArticle.author} <span>
+                    | Topic: {singleArticle.topic} </span></p>
             </article>
-            
+
         </div>
     );
 };
