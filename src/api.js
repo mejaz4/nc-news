@@ -27,3 +27,28 @@ export const getSingleArticle = (article_slug) => {
     });
   };
 
+
+  export const getComments = (article_id) => {
+    return myApi.get(`/articles/${article_id}/comments`).then(({ data }) => {
+        return data.comments
+    });
+  }
+
+  export const postComment = (article_id, newCommentText) => {
+const postBody = {
+    username: "grumpy19",
+    body: newCommentText,
+}
+    return myApi.post(`/articles/${article_id}/comments`, postBody).then(({ data }) => {
+        console.log(data, "Data")
+        return data.comments
+    });
+  }
+
+
+  export const getUsers = () => {
+    return myApi.get('/users')
+    .then((res) => {
+        return res.data.users
+    })
+}
