@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getComments } from './api';
 import CommentAdder from "./CommentAdder";
+
 const Comments = ({article_id}) => {
     const [comments, setComments] = useState([])
     const [isLoading, setIsLoading] = useState(true)
