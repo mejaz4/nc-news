@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getSingleArticle } from './api';
+import Comments from './Comments';
 
 const SingleArticle = () => {
     const { article_id } = useParams();
@@ -20,7 +21,7 @@ const SingleArticle = () => {
         return <p className='Loading'>Loading...</p>;
     }
 
-    console.log(singleArticle)
+    
     return (
         <div>
             <article>
@@ -32,7 +33,7 @@ const SingleArticle = () => {
                 <p>Written by: {singleArticle.author} <span>
                     | Topic: {singleArticle.topic} </span></p>
             </article>
-
+            <Comments article_id={article_id} />
         </div>
     );
 };
