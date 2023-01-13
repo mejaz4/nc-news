@@ -6,10 +6,17 @@ const myApi = axios.create({
     
 })
 
-export const getArticles = () => {
+export const getArticles = (topic_name) => {
     return myApi.get('/articles')
     .then((res) => {
-        return res.data.articles
+        
+        if (!topic_name) {
+            return res.data.articles
+        } else {
+           const filteredArray = res.data.articles.filter((article) => article.topic === topic_name)
+          return filteredArray;
+
+        }
     })
 }
 
@@ -40,7 +47,6 @@ const postBody = {
     body: newCommentText,
 }
     return myApi.post(`/articles/${article_id}/comments`, postBody).then(({ data }) => {
-        console.log(data, "Data")
         return data.comments
     });
   }
