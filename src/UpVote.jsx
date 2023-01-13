@@ -18,8 +18,8 @@ const UpVote = ({ votes, article_id }) => {
         <section className="vote">
             <p>Votes for this article: <span>{votes + voteChange} </span></p>
             
-            <button onClick={() => increaseVote(1)}>Vote👍🏽</button>
-            <button onClick={() => increaseVote(-1)}>Un-vote👎🏽</button>
+            <button onClick={() => increaseVote(1)}>Vote <span aria-label='up'>👍</span></button>
+            <button onClick={() => increaseVote(-1)}>Un-vote <span aria-label='up'>👎</span></button>
         </section>
     )
 
