@@ -52,3 +52,14 @@ const postBody = {
         return res.data.users
     })
 }
+
+
+export const patchVote = (article_id, votes) => {
+    const patchBody = {
+        inc_votes: votes,
+    };
+    return myApi.patch(`/articles/${article_id}`, patchBody)
+    .then(({ data } ) => {
+        return data.article;
+    })
+}
