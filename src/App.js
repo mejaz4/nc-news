@@ -18,6 +18,7 @@ function App() {
           <Route path="/" element={<Articles />}></Route>
           <Route path="/users" element={<Users />}></Route>
           <Route path="/topics" element={<Topics />}></Route>
+          <Route path="/topics/:topic_name" element={<Articles />}></Route>
           <Route path="/articles/:article_id" element={<SingleArticle />}></Route>
         </Routes>
       </div>

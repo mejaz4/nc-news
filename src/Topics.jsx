@@ -24,7 +24,7 @@ const Topics = () => {
             <h2>Choose a topic from following:</h2>
             <ul>
                 {topicList.map((topic) => {
-                    return <li key={topic.article_id}><Link to={`/topic/${topic.title}`} >{topic.slug}</Link> 
+                    return <li key={topic.article_id}><Link to={`/topics/${topic.slug}`} >{topic.slug}</Link> 
                     <p>Description: {topic.description}</p>
                     </li>
                 })}

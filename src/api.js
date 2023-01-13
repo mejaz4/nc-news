@@ -6,10 +6,18 @@ const myApi = axios.create({
     
 })
 
-export const getArticles = () => {
+export const getArticles = (topic_name) => {
     return myApi.get('/articles')
     .then((res) => {
-        return res.data.articles
+        console.log(res.data.articles, 'get res')
+        
+        if (!topic_name) {
+            return res.data.articles
+        } else {
+           const filteredArray = res.data.articles.filter((article) => article.topic === topic_name)
+          return filteredArray;
+
+        }
     })
 }
 
@@ -63,3 +71,19 @@ export const patchVote = (article_id, votes) => {
         return data.article;
     })
 }
+
+
+// export const getArticlesByTopic = (topic_name) => {
+//     return myApi.get(`/articles?topic_name=${topic_name}`)
+//     .then((res) => {
+//         console.log(res, 'res')
+//       return res.data.articles;
+//     })
+// }
+
+// export const getArrrticles = () => {
+//     return myApi.get('/articles')
+//     .then((res) => {
+//         return res.data.articles
+//     })
+// }
