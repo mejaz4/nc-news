@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getSingleArticle } from './api';
 import Comments from './Comments';
+import UpVote from './UpVote';
 
 const SingleArticle = () => {
     const { article_id } = useParams();
@@ -33,6 +34,7 @@ const SingleArticle = () => {
                 <p>Written by: {singleArticle.author} <span>
                     | Topic: {singleArticle.topic} </span></p>
             </article>
+            <UpVote article_id={article_id} votes={singleArticle.votes}/>
             <Comments article_id={article_id} />
         </div>
     );
