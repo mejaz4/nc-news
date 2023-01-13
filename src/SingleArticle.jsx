@@ -8,15 +8,19 @@ const SingleArticle = () => {
     const { article_id } = useParams();
     const [singleArticle, setSingleArticle] = useState({});
     const [isLoading, setIsLoading] = useState(true)
-
+    const [err, setErr] = useState(null)
 
     useEffect(() => {
         setIsLoading(true)
         getSingleArticle(article_id).then((articleData) => {
-            
+
             setSingleArticle(articleData);
             setIsLoading(false)
-        });
+        })
+            .catch((err) => {
+                setErr(err.response.data.msg)
+                setIsLoading(false)
+            })
     }, [article_id]);
 
 
@@ -24,7 +28,14 @@ const SingleArticle = () => {
         return <p className='Loading'>Loading...</p>;
     }
 
-    
+    if (err) {
+       return (
+        <main>
+            <p>Error: {err}</p>
+        </main>
+   
+       )}
+
     return (
         <div>
             <article>
@@ -36,7 +47,7 @@ const SingleArticle = () => {
                 <p>Written by: {singleArticle.author} <span>
                     | Topic: {singleArticle.topic} </span></p>
             </article>
-            <UpVote article_id={article_id} votes={singleArticle.votes}/>
+            <UpVote article_id={article_id} votes={singleArticle.votes} />
             <Comments article_id={article_id} />
         </div>
     );
