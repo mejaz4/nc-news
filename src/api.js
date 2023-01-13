@@ -9,7 +9,6 @@ const myApi = axios.create({
 export const getArticles = (topic_name) => {
     return myApi.get('/articles')
     .then((res) => {
-        console.log(res.data.articles, 'get res')
         
         if (!topic_name) {
             return res.data.articles
@@ -48,7 +47,6 @@ const postBody = {
     body: newCommentText,
 }
     return myApi.post(`/articles/${article_id}/comments`, postBody).then(({ data }) => {
-        console.log(data, "Data")
         return data.comments
     });
   }
@@ -71,19 +69,3 @@ export const patchVote = (article_id, votes) => {
         return data.article;
     })
 }
-
-
-// export const getArticlesByTopic = (topic_name) => {
-//     return myApi.get(`/articles?topic_name=${topic_name}`)
-//     .then((res) => {
-//         console.log(res, 'res')
-//       return res.data.articles;
-//     })
-// }
-
-// export const getArrrticles = () => {
-//     return myApi.get('/articles')
-//     .then((res) => {
-//         return res.data.articles
-//     })
-// }
