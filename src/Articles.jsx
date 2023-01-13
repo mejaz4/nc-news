@@ -8,7 +8,6 @@ const Articles = () => {
     const [isLoading, setIsLoading] = useState(true)
     const {topic_name}  = useParams();
 
-    console.log(topic_name, "topic name")
 
     useEffect(() => {
         setIsLoading(true)
